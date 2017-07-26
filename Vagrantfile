@@ -5,7 +5,7 @@ options = {
   :memory => 3072,
 }
 Vagrant.configure("2") do |config|
-    config.omnibus.chef_version = :latest
+    config.omnibus.chef_version = "12.8.1" 
     config.berkshelf.enabled = true
     config.vm.provision "shell", path: "eucadev/prep.sh"
     config.vm.synced_folder ".", "/vagrant", owner: "root", group: "root"
@@ -63,6 +63,8 @@ Vagrant.configure("2") do |config|
       u.vm.provider :virtualbox do |v|
         v.customize ["modifyvm", :id, "--memory", options[:memory].to_i]
       	v.customize ["modifyvm", :id, "--cpus", options[:cores].to_i]
+        v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+        v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
       end
       u.vm.provider :vmware_fusion do |v, override|
         override.vm.box_url = "http://euca-vagrant.s3.amazonaws.com/euca-deps-vmware.box"
