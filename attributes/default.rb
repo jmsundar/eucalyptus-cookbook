@@ -2,9 +2,9 @@
 default["eucalyptus"]["install-type"] = "packages"
 
 default["eucalyptus"]["source-repo"] = "https://github.com/eucalyptus/eucalyptus.git"
-default["eucalyptus"]["source-branch"] = "master"
+default["eucalyptus"]["source-branch"] = "maint-4.2"
 default["eucalyptus"]["cloud-libs-repo"] = "https://github.com/eucalyptus/eucalyptus-cloud-libs.git"
-default["eucalyptus"]["cloud-libs-branch"] = "master"
+default["eucalyptus"]["cloud-libs-branch"] = "maint-4.2"
 
 default["eucalyptus"]["san-repo"] = ""
 default["eucalyptus"]["san-branch"] = "master"
@@ -15,8 +15,8 @@ default["eucalyptus"]["selinux-repo"] = "https://github.com/eucalyptus/eucalyptu
 default["eucalyptus"]["selinux-branch"] = "master"
 
 default['eucalyptus']['rm-source-dir'] = false
-default["eucalyptus"]["eucalyptus-repo"] = "http://downloads.eucalyptus.com/software/eucalyptus/nightly/devel/rhel/$releasever/$basearch/"
-default["eucalyptus"]["euca2ools-repo"] = "http://downloads.eucalyptus.com/software/euca2ools/nightly/devel/rhel/$releasever/$basearch/"
+default["eucalyptus"]["eucalyptus-repo"] = "http://downloads.eucalyptus.com/software/eucalyptus/4.2/centos/$releasever/$basearch/"
+default["eucalyptus"]["euca2ools-repo"] = "http://downloads.eucalyptus.com/software/euca2ools/3.3/centos/$releasever/$basearch/"
 default["eucalyptus"]["enterprise-repo"] = ""
 default["eucalyptus"]["eucalyptus-gpg-key"] = "http://downloads.eucalyptus.com/software/gpg/eucalyptus-release-key.pub"
 default["eucalyptus"]["euca2ools-gpg-key"] = "http://downloads.eucalyptus.com/software/gpg/eucalyptus-release-key.pub"
@@ -27,7 +27,7 @@ default['eucalyptus']['install-service-image'] = true
 #default['eucalyptus']['imaging-vm-type'] = 'm1.small'
 #default['eucalyptus']['loadbalancing-vm-type'] = 'm1.small'
 default['eucalyptus']['service-image-repo'] = ""
-default["eucalyptus"]["epel-rpm"] = "http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+default["eucalyptus"]["epel-rpm"] = "https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm"
 default['eucalyptus']['eustore-url'] = "http://emis.eucalyptus.com/"
 default['eucalyptus']['default-img-url'] = "http://euca-vagrant.s3.amazonaws.com/cirrosraw.img"
 default['eucalyptus']['yum-options'] = ""

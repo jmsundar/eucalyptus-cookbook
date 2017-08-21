@@ -433,11 +433,13 @@ execute "create_imaging_worker" do
   only_if { node['eucalyptus']['install-service-image'] }
 end
 
-node['eucalyptus']['cloud-properties'].each do |key, value|
-  execute "#{euctl} #{key}=\"#{value}\"" do
-    retries 10
-    retry_delay 5
-    not_if "#{euctl} #{key} | grep \"#{value}\""
+unless node['eucalyptus']['cloud-properties'].nil?
+  node['eucalyptus']['cloud-properties'].each do |key, value|
+    execute "#{euctl} #{key}=\"#{value}\"" do
+      retries 10
+      retry_delay 5
+      not_if "#{euctl} #{key} | grep \"#{value}\""
+    end
   end
 end
 

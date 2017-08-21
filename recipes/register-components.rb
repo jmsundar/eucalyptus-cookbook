@@ -40,12 +40,13 @@ describe_services = "#{command_prefix}/usr/bin/euserv-describe-services"
 
 
 clusters.each do |cluster, info|
-  if info["cc"] == ""
+  STDERR.puts cluster
+  STDERR.puts info
+  if info["cc"].nil?
     cc_ips = node['ipaddress']
   else
     cc_ips = info["cc"]
   end
-
   cc_ips.each_with_index do |cc_ip, index|
     execute "Register CC" do
       command "#{register_service} -t cluster -z #{cluster} -h #{cc_ip} #{cluster}-cc-#{index}"
